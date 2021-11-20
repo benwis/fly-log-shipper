@@ -19,7 +19,7 @@
   # auth.strategy="basic"
   # auth.strategy="bearer"
   # auth.token = "Bearer 3a4dab2f90f0b2a29c6b0ee9466ac88f" 
-  request.headers.Authorization = "Bearer 3a4dab2f90f0b2a29c6b0ee9466ac88f" 
+  request.headers.Authorization = "Bearer ${ERASEARCH_TOKEN}" 
   healthcheck.enabled = false
   request.concurrency = "adaptive"
   index = "${ERASEARCH_INDEX}"
