@@ -2,14 +2,6 @@
 
 app = "graphauth-aws-log-shipper"
 
-kill_signal = "SIGINT"
-kill_timeout = 5
-
-[experimental]
-  allowed_public_ports = []
-  auto_rollback = true
-
-
 [metrics]
   port = 9598
   path = "/metrics"
