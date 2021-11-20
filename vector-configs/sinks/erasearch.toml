@@ -1,0 +1,25 @@
+[transforms.trf_json]
+  type = "remap"
+  inputs = ["log_json"]
+  source = '''
+  if starts_with(.message, "{") {
+   # parse json messages
+    json = object!(parse_json!(.message))
+    del(.message)
+    . |= json
+  }
+  '''
+
+[sinks.erasearch]
+  type="elasticsearch"
+  inputs = ["trf_json"]
+  endpoint="${ERASEARCH_URL}"
+  # auth.user="${ERASEARCH_USER}"
+  # auth.password="${ERASEARCH_PWD}"
+  # auth.strategy="basic"
+  # auth.strategy="bearer"
+  # auth.token = "Bearer 3a4dab2f90f0b2a29c6b0ee9466ac88f" 
+  request.headers.Authorization = "Bearer 3a4dab2f90f0b2a29c6b0ee9466ac88f" 
+  healthcheck.enabled = false
+  request.concurrency = "adaptive"
+  index = "${ERASEARCH_INDEX}"

@@ -1,6 +1,6 @@
 # fly.toml file generated for log-shipper on 2021-05-24T22:46:08+02:00
 
-app = "fly-log-shipper-example"
+app = "graphauth-aws-log-shipper"
 
 kill_signal = "SIGINT"
 kill_timeout = 5
@@ -30,3 +30,6 @@ kill_timeout = 5
     interval = "15s"
     restart_limit = 6
     timeout = "2s"
+
+[env]
+  ORG="graphauth"
